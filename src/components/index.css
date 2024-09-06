@@ -17,11 +17,11 @@
   src: url(./assets/fonts/SourceSerif4-VariableFont-opsz,wght.ttf);
 }
 
-.components,
-.components * {
+@layer base {
+:root  {
   font-family: "Figtree", sans-serif;
   --border: 214 100% 39%;
-  --primary:  #001943 
+  --primary: 0, 100%, 50%  
   --primary-foreground: 0 0% 100%;
   --secondary: 11 100% 26%;
   --secondary-foreground: 0 0% 100%;
@@ -38,4 +38,5 @@
   --foreground: 0 2% 11%;
   --popover: 225 7% 12%;
   --popover-foreground: 0 0% 100%;
+}
 }
