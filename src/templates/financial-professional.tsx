@@ -13,7 +13,7 @@ import { DocumentProvider } from "@yext/pages/util";
 import { resolveVisualEditorData } from "@yext/visual-editor";
 
 export const config: TemplateConfig = {
-  name: "financialprofessional",
+  name: "Financial Professional",
   stream: {
     $id: "financialprofessional-stream",
     filter: {
