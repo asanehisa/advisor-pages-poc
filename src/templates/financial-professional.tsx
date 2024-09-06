@@ -48,7 +48,7 @@ export const config: TemplateConfig = {
 };
 
 export const transformProps = async (data: TemplateRenderProps) => {
-  return resolveVisualEditorData(data, "financialProfessional");
+  return resolveVisualEditorData(data, "Financial Professional");
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
