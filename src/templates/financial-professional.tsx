@@ -11,6 +11,7 @@ import { Config, Render } from "@measured/puck";
 import { financialProfessionalConfig } from "../ve.config";
 import { DocumentProvider } from "@yext/pages/util";
 import { resolveVisualEditorData } from "@yext/visual-editor";
+import "../components/index.css";
 
 export const config: TemplateConfig = {
   name: "Financial Professional",

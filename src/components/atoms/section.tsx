@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
-const sectionVariants = cva(" px-4  md:px-8 py-16 mx-auto", {
+const sectionVariants = cva(" px-4 md:px-8 py-16 mx-auto", {
   variants: {
     padding: {
       default: "py-16",
@@ -38,7 +38,7 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(
         </div>
       </div>
     );
-  },
+  }
 );
 Section.displayName = "Section";
 

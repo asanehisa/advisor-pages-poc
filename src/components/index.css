@@ -2,10 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Figtree";
+  src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-VariableFont_ops,wght.ttf);
+}
+
+@font-face {
+  font-family: "SourceSerif";
+  src: url(./assets/fonts/SourceSerif4-VariableFont-opsz,wght.ttf);
+}
+
 .components,
 .components * {
+  font-family: "Figtree", sans-serif;
   --border: 214 100% 39%;
-  --primary: 0 68% 51%;
+  --primary:  #001943 
   --primary-foreground: 0 0% 100%;
   --secondary: 11 100% 26%;
   --secondary-foreground: 0 0% 100%;

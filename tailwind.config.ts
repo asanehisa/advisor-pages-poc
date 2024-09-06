@@ -64,6 +64,11 @@ export default {
           xl: "5rem",
         },
       },
+      fontFamily: {
+        figtree: ["Figtree", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        sourceSerif: ["SourceSerif", "serif"],
+      },
     },
   },
   plugins: [],
