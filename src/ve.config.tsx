@@ -1,6 +1,10 @@
 import type { Config } from "@measured/puck";
 import { HeroComponent as Hero, HeroProps } from "./components/Hero";
 import {
+  HeroComponent as FinProHero,
+  HeroProps as FinProHeroProps,
+} from "./components/financial-professional/FinProHero";
+import {
   ColumnsComponent as Columns,
   ColumnsProps,
 } from "./components/Columns";
@@ -42,7 +46,9 @@ type LocationProps = {
   FeaturedItems: FeaturedItemsProps;
 };
 
-type FinancialProfessionalProps = {};
+type FinancialProfessionalProps = {
+  FinProHero: FinProHeroProps;
+};
 
 // All the available components for locations
 export const locationConfig: Config<LocationProps> = {
@@ -73,7 +79,9 @@ export const locationConfig: Config<LocationProps> = {
 };
 
 export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
-  components: {},
+  components: {
+    FinProHero,
+  },
   root: {
     render: ({ children }) => {
       return <>{children}</>;
@@ -84,5 +92,5 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
 
 export const componentRegistry = new Map<string, Config<any>>([
   ["location", locationConfig],
-  ["financialProfessional", financialProfessionalConfig],
+  ["Financial Professional", financialProfessionalConfig],
 ]);
