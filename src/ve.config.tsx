@@ -5,18 +5,32 @@ import {
 } from "./components/financial-professional/FinProHero";
 
 import "@yext/visual-editor/style.css";
+import {
+  ServicesProps,
+  ServicesComponent as Services,
+} from "./components/financial-professional/Services";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 type FinancialProfessionalProps = {
   FinProHero: FinProHeroProps;
+  Services: ServicesProps;
 };
 
 export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
   components: {
     FinProHero,
+    Services,
   },
   root: {
     render: ({ children }) => {
-      return <>{children}</>;
+      return (
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+      );
     },
     fields: {},
   },

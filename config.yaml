@@ -13,6 +13,17 @@ siteStream:
   entityId: site
   fields:
     - c_visualLayouts.c_visualConfiguration
+    - logo
+    - c_headerCTAs
+    - c_productsAndServicesCmpt
+    - c_termsAndConditions
+    - c_headquarters.name
+    - c_headquarters.address
+    - c_headquarters.facebookPageUrl
+    - c_headquarters.linkedInUrl
+    - c_headquarters.twitterHandle
+    - c_headquarters.instagramHandle
+    
   localization:
     locales:
       - en

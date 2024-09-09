@@ -1,4 +1,10 @@
-import { Link, CTA } from "@yext/pages-components";
+import {
+  Link,
+  CTA,
+  LexicalRichText,
+  Address,
+  Image,
+} from "@yext/pages-components";
 import {
   FaFacebook,
   FaInstagram,
@@ -6,111 +12,119 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import logo from "../assets/logo-white.png"; // Adjust the path as needed
 import "./index.css";
-
-const navigation: CTA[] = [
-  { link: "#", label: "Contact Us" },
-  { link: "#", label: "Restaurants" },
-  { link: "#", label: "Blog" },
-  { link: "#", label: "Support" },
-  { link: "#", label: "Careers" },
-  { link: "#", label: "FAQs" },
-];
+import { FinancialprofessionalStream } from "../types/autogen";
+import { useDocument } from "@yext/pages/util";
+import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
+import { EntityField } from "@yext/visual-editor";
 
 const Footer = () => {
-  return (
-    <FooterLayout
-      copyrightMessage={"All Rights Reserved."}
-      youtube="#"
-      twitter="#"
-      linkedIn="#"
-      facebook="#"
-      instagram="#"
-      footerLinks={navigation}
-    />
-  );
-};
-
-interface FooterLayoutProps {
-  copyrightMessage: string;
-  youtube?: string;
-  linkedIn?: string;
-  twitter?: string;
-  facebook?: string;
-  instagram?: string;
-  footerLinks: CTA[];
-}
-
-const FooterLayout = (props: FooterLayoutProps) => {
-  const {
-    copyrightMessage,
-    youtube,
-    linkedIn,
-    twitter,
-    facebook,
-    instagram,
-    footerLinks,
-  } = props;
-
-  const socialLinks = [
-    {
-      name: "facebook",
-      link: facebook,
-      label: <FaFacebook size="24" className="text-white" />,
-    },
-    {
-      name: "instagram",
-      link: instagram,
-      label: <FaInstagram size="24" className="text-white" />,
-    },
-    {
-      name: "youtube",
-      link: youtube,
-      label: <FaYoutube size="24" className="text-white" />,
-    },
-    {
-      name: "linkedIn",
-      link: linkedIn,
-      label: <FaLinkedinIn size="24" className="text-white" />,
-    },
-    {
-      name: "twitter",
-      link: twitter,
-      label: <FaTwitter size="24" className="text-white" />,
-    },
-  ].filter((link) => link.link);
+  const { _site } = useDocument<FinancialprofessionalStream>();
+  const { c_headquarters, c_termsAndConditions, logo } = _site;
+  const headquarters = c_headquarters[0];
 
   return (
-    <footer className="bg-foreground p-4 text-white components">
-      <div className="mb-4 flex flex-col-reverse md:flex-row md:justify-between">
-        <div className="flex flex-col space-y-4 pt-4 md:grid md:grid-cols-2 md:grid-rows-4 md:gap-y-4 md:space-y-0 md:pt-0">
-          {footerLinks.map((link, i) => (
-            <Link
-              key={i}
-              cta={link}
-              className="font-bold hover:underline md:px-4"
-              eventName={`link${i}`}
-            />
-          ))}
-        </div>
-        <div className="flex space-x-4 pb-4">
-          {socialLinks.map((socialLink, i) =>
-            socialLink.link ? (
-              <Link
-                key={i}
-                href={socialLink.link}
-                className="hover:text-gray-300"
-              >
-                {socialLink.label}
-              </Link>
-            ) : null,
+    <footer className="bg-[#001943] px-4 text-white">
+      <div className="mb-4 flex flex-col mx-auto max-w-7xl ">
+        <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between">
+          {/* logo goes here */}
+
+          {logo && (
+            <EntityField fieldId="_site.logo" displayName="Logo">
+              <Image layout="fixed" width={218} height={218} image={logo} />
+            </EntityField>
           )}
+          <div className="pt-3">
+            {headquarters && (
+              <>
+                <EntityField
+                  fieldId="_site.c_headquarters.name"
+                  displayName="Headquarters Name"
+                >
+                  <p className="text-center lg:text-right">
+                    {headquarters.name}
+                  </p>
+                </EntityField>
+                <EntityField
+                  fieldId="_site.c_headquarters.address"
+                  displayName="Headquarters Address"
+                >
+                  <Address
+                    className="text-center lg:text-right"
+                    address={headquarters.address}
+                    lines={[["line1", "city", "region", "postalCode"]]}
+                    separator={", "}
+                  />
+                </EntityField>
+              </>
+            )}
+
+            <div className="flex justify-center lg:justify-end gap-x-6 pt-4">
+              {headquarters.facebookPageUrl && (
+                <EntityField
+                  fieldId="_site.c_headquarters.facebookPageUrl"
+                  displayName="Headquarters Facebook"
+                >
+                  <a
+                    href={headquarters.facebookPageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FacebookIcon className="h-5 w-5 mr-2" />
+                  </a>
+                </EntityField>
+              )}
+              {/* {linkedInUrl && (
+                <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+                  <LinkedInIcon className="h-5 w-5 mr-2" />
+                </a>
+              )} */}
+              {headquarters.twitterHandle && (
+                <EntityField
+                  fieldId="_site.c_headquarters.twitterHandle"
+                  displayName="Headquarters Twitter"
+                >
+                  <a
+                    href={headquarters.twitterHandle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TwitterIcon className="h-5 w-5 mr-2" />
+                  </a>
+                </EntityField>
+              )}
+              <EntityField
+                fieldId="_site.c_headquarters.instagramHandle"
+                displayName="Headquarters Instagram"
+              >
+                {headquarters.instagramHandle && (
+                  <a
+                    href={headquarters.instagramHandle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <InstagramIcon className="h-5 w-5 mr-2" />
+                  </a>
+                )}
+              </EntityField>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center space-x-6">
-        <img src={logo} height={47} width={40} />
-        <span className="text-center text-sm">{copyrightMessage}</span>
+        <div className="h-px bg-white w-full my-6 " />
+        <div className="pb-12">
+          <EntityField
+            fieldId="c_termsAndConditions"
+            displayName="Terms and Conditions"
+          >
+            <LexicalRichText
+              nodeClassNames={{
+                paragraph:
+                  "text-left text-sm text-white font-figtree font-light",
+              }}
+              serializedAST={JSON.stringify(c_termsAndConditions.json)}
+            />
+          </EntityField>
+        </div>
       </div>
     </footer>
   );

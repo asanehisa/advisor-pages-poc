@@ -13,6 +13,7 @@ const bodyVariants = cva("", {
     weight: {
       default: "font-normal",
       bold: "font-bold",
+      light: "font-light",
     },
     color: {
       default: "text-default",
@@ -55,6 +56,7 @@ export const bodyProps = {
     options: [
       { label: "Default", value: "default" },
       { label: "Bold", value: "bold" },
+      { label: "Light", value: "light" },
     ],
   },
   color: {

@@ -37,6 +37,9 @@ export const config: TemplateConfig = {
       "linkedInUrl",
       "twitterHandle",
       "instagramHandle",
+      "c_productsAndServices.id",
+      "c_productsAndServices.name",
+      "c_productsAndServices.richTextDescriptionV2",
     ],
     localization: {
       locales: ["en"],

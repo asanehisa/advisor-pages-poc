@@ -17,6 +17,7 @@ import {
 import "../index.css";
 import { Body, BodyProps, bodyProps } from "../atoms/body";
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
+import { formatPhoneNumber } from "../../utils/formatPhoneNumber";
 
 export type HeroProps = {
   imageMode: "left" | "right";
@@ -70,13 +71,6 @@ const Hero = ({ imageMode, name, role, description }: HeroProps) => {
     // name: locationName,
     // c_hero: hero,
   } = useDocument<FinancialprofessionalStream>();
-
-  const formatPhoneNumber = (phone: string) => {
-    // Remove any non-digit characters and the leading +1 if present
-    const cleaned = phone.replace(/\D/g, "").replace(/^1/, "");
-    // Format the number as XXX.XXX.XXXX
-    return cleaned.replace(/(\d{3})(\d{3})(\d{4})/, "$1.$2.$3");
-  };
 
   return (
     <Section>
@@ -168,13 +162,15 @@ const Hero = ({ imageMode, name, role, description }: HeroProps) => {
             </div>
             <div className="flex justify-center sm:justify-start gap-x-6">
               {facebookPageUrl && (
-                <a
-                  href={facebookPageUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FacebookIcon className="h-5 w-5 mr-2" />
-                </a>
+                <EntityField displayName="Facebook" fieldId="facebookPageUrl">
+                  <a
+                    href={facebookPageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FacebookIcon className="h-5 w-5 mr-2" />
+                  </a>
+                </EntityField>
               )}
               {/* {linkedInUrl && (
                 <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
@@ -182,22 +178,26 @@ const Hero = ({ imageMode, name, role, description }: HeroProps) => {
                 </a>
               )} */}
               {twitterHandle && (
-                <a
-                  href={twitterHandle}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TwitterIcon className="h-5 w-5 mr-2" />
-                </a>
+                <EntityField displayName="Twitter" fieldId="twitterHandle">
+                  <a
+                    href={twitterHandle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TwitterIcon className="h-5 w-5 mr-2" />
+                  </a>
+                </EntityField>
               )}
               {instagramHandle && (
-                <a
-                  href={instagramHandle}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramIcon className="h-5 w-5 mr-2" />
-                </a>
+                <EntityField displayName="Instagram" fieldId="instagramHandle">
+                  <a
+                    href={instagramHandle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <InstagramIcon className="h-5 w-5 mr-2" />
+                  </a>
+                </EntityField>
               )}
             </div>
             <div className="flex flex-col gap-y-4">

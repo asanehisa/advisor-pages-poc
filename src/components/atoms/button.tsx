@@ -12,6 +12,7 @@ const buttonVariants = cva(
           "bg-[#3165BF] text-white px-9 py-4 gap-2.5 hover:bg-[#3165BF]/90 active:bg-[#3165BF]/80",
         secondary:
           "flex-col items-start border border-[#3165BF] text-[#3165BF] px-4 py-4 gap-4 hover:bg-[#3165BF]/10 active:bg-[#3165BF]/20",
+        link: "text-[#001943] text-lg font-light p-0 hover:underline",
       },
     },
     defaultVariants: {
