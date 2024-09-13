@@ -11,16 +11,22 @@ import {
 } from "./components/financial-professional/Services";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import {
+  SocialPostsProps,
+  SocialPostsComponent as SocialPosts,
+} from "./components/SocialPosts";
 
 type FinancialProfessionalProps = {
   FinProHero: FinProHeroProps;
   Services: ServicesProps;
+  SocialPosts: SocialPostsProps;
 };
 
 export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
   components: {
     FinProHero,
     Services,
+    SocialPosts,
   },
   root: {
     render: ({ children }) => {

@@ -1,4 +1,5 @@
 import { AddressType } from "@yext/pages-components";
+import { Activity } from "./hearsay";
 
 export interface C_visualConfigurations {
   template: string;
@@ -68,6 +69,7 @@ export interface FinancialprofessionalStream {
   instagramHandle: string;
   c_pages_layouts: C_pages_layouts[];
   c_productsAndServices: C_productsAndServices[];
+  socialPosts?: Activity[];
   _site: SiteStream;
 }
 

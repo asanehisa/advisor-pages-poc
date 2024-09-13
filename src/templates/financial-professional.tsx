@@ -12,6 +12,7 @@ import { financialProfessionalConfig } from "../ve.config";
 import { DocumentProvider } from "@yext/pages/util";
 import { resolveVisualEditorData } from "@yext/visual-editor";
 import "../components/index.css";
+import { getActivities } from "../utils/api";
 
 export const config: TemplateConfig = {
   name: "Financial Professional",
@@ -52,7 +53,15 @@ export const config: TemplateConfig = {
 };
 
 export const transformProps = async (data: TemplateRenderProps) => {
-  return resolveVisualEditorData(data, "Financial Professional");
+  let streamData = resolveVisualEditorData(data, "Financial Professional");
+
+  const socialResponse = await getActivities({
+    orgId: "1712",
+    assetType: "third_party_site",
+    assetId: "2393541",
+  });
+  streamData.document.socialPosts = socialResponse.data;
+  return streamData;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
