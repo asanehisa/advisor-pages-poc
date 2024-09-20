@@ -111,4 +111,6 @@ export interface SiteStream {
   c_termsAndConditions: RichTextV2;
   c_visualLayouts: C_visualLayouts[];
   c_headquarters: C_headquarters[];
+  c_orgId?: string;
+  c_themeId?: string;
 }

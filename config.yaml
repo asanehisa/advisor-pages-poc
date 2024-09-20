@@ -23,11 +23,8 @@ siteStream:
     - c_headquarters.linkedInUrl
     - c_headquarters.twitterHandle
     - c_headquarters.instagramHandle
-    
+    - c_orgId
+    - c_themeId
   localization:
     locales:
       - en
-# authentication:
-#   policyName: auth-policy
-#   includePaths:
-#     - /edit

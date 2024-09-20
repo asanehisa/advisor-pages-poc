@@ -75,7 +75,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 };
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug ? document.slug : "financialprofessional/" + document.id;
+  return document.slug ? document.slug : "advisors/" + document.id;
 };
 
 const FinancialProfessional: Template<TemplateRenderProps> = ({ document }) => {

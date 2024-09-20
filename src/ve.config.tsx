@@ -15,11 +15,16 @@ import {
   SocialPostsProps,
   SocialPostsComponent as SocialPosts,
 } from "./components/SocialPosts";
+import {
+  LeadFormProps,
+  LeadFormComponent as LeadForm,
+} from "./components/financial-professional/LeadForm";
 
 type FinancialProfessionalProps = {
   FinProHero: FinProHeroProps;
   Services: ServicesProps;
   SocialPosts: SocialPostsProps;
+  LeadForm: LeadFormProps;
 };
 
 export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
@@ -27,6 +32,7 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
     FinProHero,
     Services,
     SocialPosts,
+    LeadForm,
   },
   root: {
     render: ({ children }) => {

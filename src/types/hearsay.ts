@@ -91,3 +91,15 @@ export interface GetActivitiesParams {
   assetType: string;
   assetId: string;
 }
+
+export interface CreateLeadParams {
+  contactMethod: "email" | "phone";
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message?: string;
+  postalCode: string;
+  themeId?: string;
+  optin?: boolean;
+}
