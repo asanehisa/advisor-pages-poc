@@ -19,6 +19,7 @@ import {
   LeadFormProps,
   LeadFormComponent as LeadForm,
 } from "./components/financial-professional/LeadForm";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 type FinancialProfessionalProps = {
   FinProHero: FinProHeroProps;
@@ -26,6 +27,8 @@ type FinancialProfessionalProps = {
   SocialPosts: SocialPostsProps;
   LeadForm: LeadFormProps;
 };
+
+const queryClient = new QueryClient();
 
 export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
   components: {
@@ -37,11 +40,11 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
   root: {
     render: ({ children }) => {
       return (
-        <>
+        <QueryClientProvider client={queryClient}>
           <Header />
           {children}
           <Footer />
-        </>
+        </QueryClientProvider>
       );
     },
     fields: {},
