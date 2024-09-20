@@ -19,7 +19,10 @@ import {
   LeadFormProps,
   LeadFormComponent as LeadForm,
 } from "./components/financial-professional/LeadForm";
+import { AnalyticsProvider } from "@yext/pages-components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useDocument } from "@yext/pages/util";
+import { FinancialprofessionalStream } from "./types/autogen";
 
 type FinancialProfessionalProps = {
   FinProHero: FinProHeroProps;
@@ -39,12 +42,22 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
   },
   root: {
     render: ({ children }) => {
+      const document = useDocument<FinancialprofessionalStream>();
+
       return (
-        <QueryClientProvider client={queryClient}>
-          <Header />
-          {children}
-          <Footer />
-        </QueryClientProvider>
+        <AnalyticsProvider
+          apiKey={YEXT_PUBLIC_EVENTS_API_KEY}
+          templateData={{ document }}
+          productionDomains={["readily-sweeping-collie.sbx.pgsdemo.com"]}
+          currency="USD"
+          enableDebugging={YEXT_PUBLIC_ENV !== "prod"}
+        >
+          <QueryClientProvider client={queryClient}>
+            <Header />
+            {children}
+            <Footer />
+          </QueryClientProvider>
+        </AnalyticsProvider>
       );
     },
     fields: {},
