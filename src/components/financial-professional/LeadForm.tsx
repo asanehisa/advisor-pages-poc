@@ -149,9 +149,6 @@ export const LeadForm = ({
               >
                 {title}
               </Heading>
-              <Body className="text-left text-white pt-6" fontFamily="inter">
-                {subtitle}
-              </Body>
             </div>
             <Form {...form}>
               <form
