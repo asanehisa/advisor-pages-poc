@@ -113,4 +113,6 @@ export interface SiteStream {
   c_headquarters: C_headquarters[];
   c_orgId?: string;
   c_themeId?: string;
+  c_heroImage?: ComplexImage;
+  c_contactImage?: ComplexImage;
 }

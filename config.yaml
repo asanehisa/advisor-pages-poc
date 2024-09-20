@@ -25,6 +25,8 @@ siteStream:
     - c_headquarters.instagramHandle
     - c_orgId
     - c_themeId
+    - c_heroImage
+    - c_contactImage
   localization:
     locales:
       - en

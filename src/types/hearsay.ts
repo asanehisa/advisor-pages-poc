@@ -99,7 +99,6 @@ export interface CreateLeadParams {
   email: string;
   phone: string;
   message?: string;
-  postalCode: string;
   themeId?: string;
   optin?: boolean;
 }

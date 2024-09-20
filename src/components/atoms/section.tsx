@@ -36,7 +36,7 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     ref
   ) => {
     return (
-      <div className="bg-[#F7F8FA]">
+      <div className="components bg-background">
         <div
           className={cn(
             sectionVariants({

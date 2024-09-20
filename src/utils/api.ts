@@ -47,12 +47,11 @@ export async function createLead(
     contactMethod: params.contactMethod,
     firstName: params.firstName,
     lastName: params.lastName,
-    themeId: params.themeId || "1237",
+    themeId: params.themeId,
     email: params.email,
     phone: params.phone,
     message: params.message,
     optin: params.optin ?? true,
-    postalCode: params.postalCode,
   };
 
   try {
