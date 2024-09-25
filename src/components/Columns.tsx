@@ -1,4 +1,4 @@
-import { ComponentConfig, DropZone, Fields } from "@measured/puck";
+import { ComponentConfig, Fields } from "@measured/puck";
 import "./index.css";
 import { Section } from "./temp-section";
 
