@@ -128,177 +128,168 @@ export const LeadForm = ({
   }
 
   return (
-    <Section className="font-inter">
-      <div className="max-w-screen-xl mx-auto px-3 py-24">
-        <div className="xl:grid xl:grid-cols-2 xl:gap-8">
-          <div>
-            <div className="flex flex-col justify-start pb-12">
-              <Body
-                className="text-left uppercase"
-                fontFamily="inter"
-                weight="light"
-                color="primary"
-              >
-                {subtitle}
-              </Body>
-              <Heading
-                className="text-left pt-5"
-                fontFamily="inter"
-                level={2}
-                color="primary"
-              >
-                {title}
-              </Heading>
-            </div>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4"
-              >
-                <FormField
-                  control={form.control}
-                  name="preferredContact"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Preferred communication method:</FormLabel>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex flex-col space-y-1"
-                        >
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="email" />
-                            </FormControl>
-                            <FormLabel className="font-normal">Email</FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="phone" />
-                            </FormControl>
-                            <FormLabel className="font-normal">Phone</FormLabel>
-                          </FormItem>
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input {...field} placeholder="First Name" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input {...field} placeholder="Last Name" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          type="email"
-                          placeholder="Email"
-                          autoComplete="off"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          type="tel"
-                          placeholder="Phone Number"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Textarea {...field} placeholder="Message" />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="consentToText"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 py-4">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel>
-                          I consent to allowing {advisorName} to send me text
-                          messages on behalf of Taurus.
-                        </FormLabel>
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting || !form.watch("consentToText")}
-                  className="w-full uppercase"
-                >
-                  {isSubmitting ? "Submitting..." : submitButtonText}
-                </Button>
-              </form>
-            </Form>
+    <Section className="max-w-screen-xl mx-auto px-3 py-24">
+      <div className="xl:grid xl:grid-cols-2 xl:gap-8">
+        <div>
+          <div className="flex flex-col justify-start pb-12">
+            <Body
+              className="text-left uppercase"
+              fontFamily="inter"
+              weight="light"
+              color="primary"
+            >
+              {subtitle}
+            </Body>
+            <Heading
+              className="text-left pt-5"
+              fontFamily="inter"
+              level={2}
+              color="primary"
+            >
+              {title}
+            </Heading>
           </div>
-          {c_contactImage && (
-            <div className="hidden relative xl:flex xl:justify-center">
-              <div className="w-[418px] h-[418px] bg-primary"></div>
-              <Image
-                image={c_contactImage}
-                width={418}
-                height={418}
-                layout="fixed"
-                className="absolute top-32 left-0"
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="preferredContact"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Preferred communication method:</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-1"
+                      >
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="email" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Email</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="phone" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Phone</FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-          )}
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="First Name" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Last Name" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="email"
+                        placeholder="Email"
+                        autoComplete="off"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} type="tel" placeholder="Phone Number" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea {...field} placeholder="Message" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="consentToText"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 py-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>
+                        I consent to allowing {advisorName} to send me text
+                        messages on behalf of Taurus.
+                      </FormLabel>
+                    </div>
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                type="submit"
+                disabled={isSubmitting || !form.watch("consentToText")}
+                className="w-full uppercase"
+              >
+                {isSubmitting ? "Submitting..." : submitButtonText}
+              </Button>
+            </form>
+          </Form>
         </div>
+        {c_contactImage && (
+          <div className="hidden relative xl:flex xl:justify-center">
+            <div className="w-[418px] h-[418px] bg-primary"></div>
+            <Image
+              image={c_contactImage}
+              width={418}
+              height={418}
+              layout="fixed"
+              className="absolute top-32 left-0"
+            />
+          </div>
+        )}
       </div>
     </Section>
   );

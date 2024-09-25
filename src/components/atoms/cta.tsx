@@ -1,12 +1,13 @@
 import { Link } from "@yext/pages-components";
 import { Button, ButtonProps } from "./button";
 import { cn } from "../../utils/cn";
+import { ComponentConfig, Fields } from "@measured/puck";
 
-export interface CTAProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface CTAProps {
   label?: string;
   url?: string;
   variant?: ButtonProps["variant"];
+  className?: string;
 }
 
 const CTA = ({ label, url, variant, className, ...props }: CTAProps) => {
@@ -30,6 +31,31 @@ const CTA = ({ label, url, variant, className, ...props }: CTAProps) => {
   );
 };
 
-CTA.displayName = "CTA";
+type CTABlockProps = Omit<CTAProps, "className">;
 
-export { CTA };
+const ctaFields: Fields<CTABlockProps> = {
+  label: { type: "text", label: "Label" },
+  url: { type: "text", label: "URL" },
+  variant: {
+    type: "radio",
+    label: "Variant",
+    options: [
+      { label: "Default", value: "default" },
+      { label: "Secondary", value: "secondary" },
+    ],
+  },
+};
+
+const CTABlock: ComponentConfig<CTABlockProps> = {
+  fields: ctaFields,
+  defaultProps: {
+    label: "Click me",
+    url: "#",
+    variant: "primary",
+  },
+  render: ({ label, url, variant }) => (
+    <CTA label={label} url={url} variant={variant} />
+  ),
+};
+
+export { CTA, CTABlockProps, CTABlock };

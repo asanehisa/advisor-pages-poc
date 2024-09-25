@@ -1,6 +1,6 @@
 import { ComponentConfig, DropZone, Fields } from "@measured/puck";
 import "./index.css";
-import { Section } from "../atoms/section";
+import { Section } from "./temp-section";
 
 export type ColumnsProps = {
   distribution: "auto" | "manual";
@@ -35,7 +35,7 @@ const Columns = ({ columns, distribution }: ColumnsProps) => {
           >
             <DropZone
               zone={`column-${idx}`}
-              allow={["HoursCard", "StoreInfoCard", "Card"]}
+              // allow={["HoursCard", "StoreInfoCard", "Card"]}
             />
           </div>
         ))}

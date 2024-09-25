@@ -17,7 +17,7 @@ export const SocialPosts = ({}: SocialPostsProps) => {
   if (!socialPosts) return null;
 
   return (
-    <Section className="flex flex-col justify-center max-w-7xl py-24 components">
+    <Section className="flex flex-col justify-center max-w-7xl py-24 components mx-auto">
       <Heading level={2} className="text-center pb-8">
         Latest Updates
       </Heading>
