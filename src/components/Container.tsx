@@ -8,6 +8,7 @@ export type ContainerProps = {
   padding: "small" | "medium" | "large";
   gap: "small" | "medium" | "large";
   verticalAlignment: "top" | "center" | "bottom";
+  renderDropZone?: any;
 };
 
 const Container = ({
@@ -16,6 +17,7 @@ const Container = ({
   padding,
   gap,
   verticalAlignment,
+  renderDropZone,
 }: ContainerProps) => {
   return (
     <div
@@ -39,17 +41,11 @@ const Container = ({
     >
       {layout !== "full-width" && (
         <div className="flex-1">
-          <DropZone
-            zone="left"
-            allow={["Image", "HeadingBlock", "CTABlock", "Body"]}
-          />
+          {renderDropZone({ zone: `left`, allow:["Image", "HeadingBlock", "CTABlock", "Body"]})}
         </div>
       )}
       <div className={cn("flex-1", layout === "full-width" && "w-full")}>
-        <DropZone
-          zone="right"
-          allow={["Image", "HeadingBlock", "CTABlock", "Body"]}
-        />
+        {renderDropZone({ zone: `right`, allow:["Image", "HeadingBlock", "CTABlock", "Body"]})}
       </div>
     </div>
   );
@@ -113,13 +109,14 @@ export const ContainerComponent: ComponentConfig<ContainerProps> = {
     gap: "medium",
     verticalAlignment: "center",
   },
-  render: ({ layout, backgroundColor, padding, gap, verticalAlignment }) => (
+  render: ({ puck: {renderDropZone}, layout, backgroundColor, padding, gap, verticalAlignment }) => (
     <Container
       layout={layout}
       backgroundColor={backgroundColor}
       padding={padding}
       gap={gap}
       verticalAlignment={verticalAlignment}
+      renderDropZone={renderDropZone}
     />
   ),
 };

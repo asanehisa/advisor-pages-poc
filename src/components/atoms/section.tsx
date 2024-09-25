@@ -209,12 +209,9 @@ export const SectionBlock: ComponentConfig<SectionBlockProps> = {
     gap: "none",
     maxWidth: "medium",
   },
-  render: (props) => (
+  render: ({puck: {renderDropZone}}, ...props) => (
     <Section {...props}>
-      <DropZone
-        zone="section-content"
-        // allow={["Container"]}
-      />
+      {renderDropZone({ zone: `section-content`})}
     </Section>
   ),
 };
