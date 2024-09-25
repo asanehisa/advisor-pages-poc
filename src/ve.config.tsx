@@ -5,6 +5,7 @@ import {
 } from "./components/financial-professional/FinProHero";
 
 import "@yext/visual-editor/style.css";
+import { ImageComponent } from './components/Image';
 import {
   ServicesProps,
   ServicesComponent as Services,
@@ -35,6 +36,10 @@ import {
   ColumnsProps,
   ColumnsComponent as Columns,
 } from "./components/Columns";
+import {
+  ImageProps,
+  ImageComponent as Image
+} from "./components/Image";
 
 import "@yext/visual-editor/style.css";
 
@@ -46,6 +51,7 @@ type FinancialProfessionalProps = {
   Section: SectionBlockProps;
   Container: ContainerProps;
   Columns: ColumnsProps;
+  Image: ImageProps;
 };
 
 const queryClient = new QueryClient();
@@ -59,6 +65,7 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
     Section,
     Container,
     Columns,
+    Image,
   },
   root: {
     render: ({ children }) => {
