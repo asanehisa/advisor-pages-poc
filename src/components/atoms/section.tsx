@@ -2,22 +2,56 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
-const sectionVariants = cva("mx-auto", {
+const sectionVariants = cva("", {
   variants: {
-    // padding: {
-    //   default: "py-16",
-    //   small: "px-4 py-8",
-    //   large: "px-[200px] py-24",
-    // },
-    // maxWidth: {
-    //   default: "max-w-6xl",
-    //   full: "max-w-full",
-    //   xl: "max-w-4xl",
-    // },
+    margin: {
+      none: "m-0",
+      small: "m-2",
+      medium: "m-4",
+      large: "m-8",
+    },
+    padding: {
+      none: "p-0",
+      small: "p-2",
+      medium: "p-4",
+      large: "p-8",
+    },
+    hAlign: {
+      left: "items-start",
+      center: "items-center",
+      right: "items-end",
+    },
+    vAlign: {
+      top: "justify-start",
+      center: "justify-center",
+      bottom: "justify-end",
+    },
+    direction: {
+      row: "flex-row",
+      column: "flex-col",
+    },
+    gap: {
+      none: "gap-0",
+      small: "gap-2",
+      medium: "gap-4",
+      large: "gap-8",
+    },
+    maxWidth: {
+      none: "max-w-none",
+      small: "max-w-md",
+      medium: "max-w-2xl",
+      large: "max-w-4xl",
+      full: "max-w-full",
+    },
   },
   defaultVariants: {
-    padding: "default",
-    // maxWidth: "default",
+    margin: "none",
+    padding: "medium",
+    hAlign: "left",
+    vAlign: "top",
+    direction: "column",
+    gap: "none",
+    maxWidth: "medium",
   },
 });
 
@@ -29,8 +63,13 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(
   (
     {
       className,
-      // padding,
-      // maxWidth,
+      margin,
+      padding,
+      hAlign,
+      vAlign,
+      direction,
+      gap,
+      maxWidth,
       ...props
     },
     ref
@@ -39,9 +78,15 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(
       <div className="components bg-background">
         <div
           className={cn(
+            "flex",
             sectionVariants({
-              // padding,
-              // maxWidth,
+              margin,
+              padding,
+              hAlign,
+              vAlign,
+              direction,
+              gap,
+              maxWidth,
               className,
             })
           )}

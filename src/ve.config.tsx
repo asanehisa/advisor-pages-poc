@@ -45,19 +45,19 @@ export const financialProfessionalConfig: Config<FinancialProfessionalProps> = {
       const document = useDocument<FinancialprofessionalStream>();
 
       return (
-        <AnalyticsProvider
-          apiKey={YEXT_PUBLIC_EVENTS_API_KEY}
-          templateData={{ document }}
-          productionDomains={["readily-sweeping-collie.sbx.pgsdemo.com"]}
-          currency="USD"
-          enableDebugging={YEXT_PUBLIC_ENV !== "prod"}
-        >
-          <QueryClientProvider client={queryClient}>
-            <Header />
-            {children}
-            <Footer />
-          </QueryClientProvider>
-        </AnalyticsProvider>
+        // <AnalyticsProvider
+        //   apiKey={YEXT_PUBLIC_EVENTS_API_KEY}
+        //   templateData={{ document }}
+        //   productionDomains={["readily-sweeping-collie.sbx.pgsdemo.com"]}
+        //   currency="USD"
+        //   enableDebugging={YEXT_PUBLIC_ENV !== "prod"}
+        // >
+        <QueryClientProvider client={queryClient}>
+          <Header />
+          {children}
+          <Footer />
+        </QueryClientProvider>
+        // </AnalyticsProvider>
       );
     },
     fields: {},

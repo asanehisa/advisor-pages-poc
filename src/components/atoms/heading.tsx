@@ -3,34 +3,37 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 
 // Define the variants for the heading component
-const headingVariants = cva("", {
+const headingVariants = cva("font-heading", {
   variants: {
     size: {
+      default: "text-heading",
       page: "text-5xl",
       section: "text-3xl",
       subheading: "text-2xl",
     },
     color: {
+      default: "text-primary",
       primary: "text-primary",
       secondary: "text-secondary",
       accent: "text-accent",
     },
     weight: {
+      default: "font-bold",
       bold: "font-bold",
       semibold: "font-semibold",
       light: "font-light",
     },
     fontFamily: {
-      figtree: "font-figtree",
+      default: "font-figtree",
       inter: "font-inter",
       sourceSerif: "font-serif",
     },
   },
   defaultVariants: {
-    size: "section",
-    color: "primary",
+    size: "default",
+    color: "default",
     weight: "bold",
-    fontFamily: "figtree",
+    fontFamily: "default",
   },
 });
 
